@@ -8,8 +8,16 @@ let defaultTodos = {
 	todos: []
 }
 
-// write a reducer that updated the todos array whenever a ADD_TODO action is dispatched
-let reducer4 = (state = defaultTodos, action) => defaultTodos;
+// write a reducer that updates the todos array whenever a ADD_TODO action is dispatched
+let reducer4 = (state = defaultTodos, action) => 
+//defaultTodos;
+{
+	if (action.type == 'ADD_TODO'){
+		return defaultTodos.todos.concat(action.todoText)
+
+	}
+	return state;
+}
 
 let store4 = Redux.createStore(reducer4);
 
