@@ -11,7 +11,13 @@ let defaultTodos = {
 // write a reducer that updates the todos array whenever a ADD_TODO action is dispatched
 let reducer4 = (state = defaultTodos, action) => {	
 	if (action.type == "ADD_TODO"){
-		state.todos.push(action.todoText);
+		//let  todoText = action.todoText 
+		//same as next line:
+		let {todoText} = action;
+		return {
+			todos: state.todos.concat(todoText)
+		};
+		//state.todos.push(action.todoText);
 	}
 	return state;
 }
